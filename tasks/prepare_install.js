@@ -21,13 +21,17 @@ module.exports = function(grunt) {
             installPrefix: ".",
         };
         
-        // the root of the installation
-        defaultOpts.packageRoot = path.join(defaultOpts.tmpDir, "package-root");
-
-        // tell npm where to stuff the cache, and for the root of our install
-        defaultOpts.cacheDir = path.join(defaultOpts.tmpDir, "npm-cache");
-        
         var opts = this.options(defaultOpts);
+        
+        // tell npm where to stuff the cache, and for the root of our install
+        if (! opts.cacheDir) {
+            opts.cacheDir = path.join(opts.tmpDir, "npm-cache");
+        }
+        
+        // the root of the installation
+        if (! opts.packageRoot) {
+            opts.packageRoot = path.join(opts.tmpDir, "package-root");
+        }
         
         var done = this.async();
         
