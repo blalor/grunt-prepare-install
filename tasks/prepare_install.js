@@ -19,6 +19,9 @@ module.exports = function(grunt) {
         var defaultOpts = {
             tmpDir: path.resolve("tmp"),
             installPrefix: ".",
+            npm: {
+                engineStrict: false
+            }
         };
         
         var opts = this.options(defaultOpts);
@@ -39,7 +42,7 @@ module.exports = function(grunt) {
         // installed, plus gyp (?) output
         Q.ninvoke(require("npm"), "load", {
             production: true,
-            "engine-strict": true,
+            "engine-strict": opts.npm.engineStrict,
             cache: opts.cacheDir,
             prefix: path.join(opts.packageRoot, opts.installPrefix),
             global: true,
