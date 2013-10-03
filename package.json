@@ -40,7 +40,8 @@
     "grunt-contrib-jshint": "~0.6.4",
     "lodash": "~2.2.0",
     "mocha": "~1.13.0",
-    "temp": "~0.6.0"
+    "temp": "~0.6.0",
+    "grunt-release": "~0.6.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"

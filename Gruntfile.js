@@ -22,11 +22,16 @@ module.exports = function(grunt) {
                 jshintrc: ".jshintrc",
             },
         },
+        release: {
+            options: {
+                tagName: "v<%= version %>",
+            }
+        },
     });
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks("grunt-contrib-jshint");
-
+    grunt.loadNpmTasks("grunt-release");
 
     grunt.registerTask("mochaTest", "runs mocha in a child process", function() {
         var done = this.async();
